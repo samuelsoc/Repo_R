@@ -10,6 +10,10 @@ library(httr)
 library(jsonlite)
 library(dplyr)
 
+##Observaciones##
+#Los objetos web, cliente y key, deben ser reemplazados por los del portal que se va a explorar
+
+
 ###Autenticación
 
 web <- "http://datosabiertos.pilar.gov.ar" # url home del cliente
