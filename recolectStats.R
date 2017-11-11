@@ -23,16 +23,16 @@ url <- "/api/v2/stats/?" # sección url api
 req <- fromJSON(paste0(cliente,url, key))
 
 ##Recolección datastream
-stats_ds <- req$datastreams$stats$resources #datastream estadisticas
-total_ds <- req$datastreams$total # solo es un número
+stats_ds <- req$datastreams$stats$resources #hits por recurso
+total_ds <- req$datastreams$total # total hits
 
 ##Recolección visualization
-stats_vz <- req$visualizations$stats$resources #visualization estadisticas
-total_vz <- req$visualizations$total # solo es un número
+stats_vz <- req$visualizations$stats$resources #hits por recurso
+total_vz <- req$visualizations$total # total de hits
 
 ##Recolección dashboard
-stats_db <- req$dashboards$stats$resources #colecciones estadisticas
-total_db <- req$dashboards$total # solo es un número
+stats_db <- req$dashboards$stats$resources #hits por recurso
+total_db <- req$dashboards$total # total de hits
 
 ##Limpieza/seleccion columnas.
 # Se agrego columna nueva URL con la direccion completa del recurso
