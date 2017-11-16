@@ -7,6 +7,8 @@ Stat_Total_Clientes.R
   library(jsonlite)
   library(dplyr)
   library(httr)
+
+  ###API OBJETOS####
   
   #Chile
   c1 = ("http://cne.cloudapi.junar.com/api/v2/stats/?auth_key=50ec79952723047e1458e769a02a970a93eccdc5") #cne 
@@ -53,11 +55,20 @@ Stat_Total_Clientes.R
  
 
  #CostaRica
- c38 = ("")
- c39 = ("")
+ c38 = ("http://api.datosabiertos.iafa.go.cr/api/v2/stats/?auth_key=429bb5a3b1ea816483c90385cd5c31f70d59a5ea")
+ c39 = ("http://mopt.cloudapi.junar.com/api/v2/stats/?auth_key=c8510cd6f3a76509ebe0c7ace210cae3b4cd0c7b")
+ c40 = ("http://escazu.cloudapi.junar.com/api/v2/stats/?auth_key=a6c9c2a20207a8d4973481a8a3f9474930f5dc62")
+ c41 = ("http://api.datosabiertos.msj.go.cr/api/v2/stats/?auth_key=291226a554075bd8f6ac59cd59bf8517f5d70203")
+ c42 = ("http://api.datosabiertos.presidencia.go.cr/api/v2/stats/?auth_key=4829b2af3b9e160a3d24a0d595cfb14c05997667")
+ c43 = ("http://api.datos.munipalmares.go.cr/api/v2/stats/?auth_key=54dfb7928021698d55bcef06a7f8b2357f2ae3f3")
+ 
+ #Otro
+ c44 = ("http://api.es.infralatam.info/api/v2/stats/?auth_key=7e6e99a2c61b5210ad947d4aa4e7087d4954340f")
 
+#####################################################################################################
+#####################################################################################################
+############GET QUERY POR TOTAL SEGUN CANAL###########################################################
 
-##GET QUERY POR TOTAL SEGUN CANAL
  #Retorna los totales por canal, sin indentificar la cuenta
 
 C1 <- fromJSON(c1, flatten = TRUE)
@@ -89,8 +100,11 @@ TotalWEB = filter(TOTAL, channel=="CHANNEL_TYPE_WEB") %>% #suma por total canal 
 
 write.csv(TOTAL, "~/TotalHitsClientes.csv", row.names = FALSE)
 
-####QUERY POR CUENTA### 
+#############################################################################################
+########################QUERY POR CUENTA#################### 
+
 #Retorna los totales por cuenta
+
 A1 <- fromJSON(c1, flatten = TRUE)
 A1 <- A1$datastreams$stats$accounts$accounts
 A2 <- fromJSON(c2, flatten = TRUE)
@@ -107,4 +121,28 @@ A5 <- A5$datastreams$stats$accounts$accounts
 TOTAL_A <- rbind (A1,A2,A3,A4,A5) # dataframe contiene lo recolectado desde accounts
 
 ##EXPORTAR DESC.
+
+
+#################################################################################################
+#########################POR PAIS#############################################
+
+##Querys por pais
+
+## Chile
+
+## Argentina
+
+## Peru
+
+## USA
+
+## CostaRica
+
+##Otro
+
+
+
+
+
+
 
