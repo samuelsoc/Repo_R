@@ -2,7 +2,6 @@ Stat_Total_Clientes.R
 
 
 
-http://api.datos.sanlorenzo.com.ar/api/v2/stats/auth_key=71963ef842204651a6132d8d8eee60f7acd097dc
 
 
   library(jsonlite)
@@ -58,15 +57,23 @@ http://api.datos.sanlorenzo.com.ar/api/v2/stats/auth_key=71963ef842204651a6132d8
  c39 = ("")
 
 
-## Objetos
+##GET QUERY POR TOTAL SEGUN CANAL
+ #Retorna los totales por canal, sin indentificar la cuenta
 
 C1 <- fromJSON(c1, flatten = TRUE)
 C1 <- C1$datastreams$stats$channels$channels
 C2 <- fromJSON(c2, flatten = TRUE)
 C2 <- C2$datastreams$stats$channels$channels
+C3 <- fromJSON(c3, flatten = TRUE)
+C3 <- C3$datastreams$stats$channels$channels
+C4 <- fromJSON(c4, flatten = TRUE)
+C4 <- C4$datastreams$stats$channels$channels
+C5 <- fromJSON(c5, flatten = TRUE)
+C5 <- C5$datastreams$stats$channels$channels
 
 ## Unir datos en una tabla
-TOTAL <- rbind (C1,C2) # dataframe contiene lo recolectado desde channels
+TOTAL <- rbind (C1,C2,C3,C4,C5) # dataframe contiene lo recolectado desde channels
+
 
 
 ##Suma totales
@@ -81,3 +88,23 @@ TotalWEB = filter(TOTAL, channel=="CHANNEL_TYPE_WEB") %>% #suma por total canal 
 ###Guardar archivo TOTAL
 
 write.csv(TOTAL, "~/TotalHitsClientes.csv", row.names = FALSE)
+
+####QUERY POR CUENTA### 
+#Retorna los totales por cuenta
+A1 <- fromJSON(c1, flatten = TRUE)
+A1 <- A1$datastreams$stats$accounts$accounts
+A2 <- fromJSON(c2, flatten = TRUE)
+A2 <- A2$datastreams$stats$accounts$accounts
+A3 <- fromJSON(c3, flatten = TRUE)
+A3 <- A3$datastreams$stats$accounts$accounts
+A4 <- fromJSON(c4, flatten = TRUE)
+A4 <- A4$datastreams$stats$accounts$accounts
+A5 <- fromJSON(c5, flatten = TRUE)
+A5 <- A5$datastreams$stats$accounts$accounts
+
+
+#### Unir datos en una tabla
+TOTAL_A <- rbind (A1,A2,A3,A4,A5) # dataframe contiene lo recolectado desde accounts
+
+##EXPORTAR DESC.
+
