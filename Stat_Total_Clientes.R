@@ -25,7 +25,7 @@ Stat_Total_Clientes.R
   #c10 =("http://api.datosabiertos.enacom.gob.ar/api/v2/stats/auth_key=30f4ed1d4b1b27a62c056e8f7967cac885487c2b")
  # c11 =("http://lanacion.cloudapi.junar.com/api/v2/stats/auth_key=f1611e2c753ec10958cf0325301ecab24a4885e9")
  c12 = ("http://api.datos.arsat.com.ar/api/v2/stats/?auth_key=f45c05b444d0d5d4c341195e79a47516038b6f08")
- c13 = ("http://api.datos.sanlorenzo.com.ar/api/v2/stats/auth_key=71963ef842204651a6132d8d8eee60f7acd097dc")
+ #c13 = ("http://api.datos.sanlorenzo.com.ar/api/v2/stats/auth_key=71963ef842204651a6132d8d8eee60f7acd097dc")
  c14 = ("http://vicentelopez.cloudapi.junar.com/api/v2/stats/?auth_key=bd8490be39079aad5e998e951caa13385d2ec052")
  c15 = ("http://api.datos.bahiablanca.gob.ar/api/v2/stats/?auth_key=df7e44427105659297fba23b177d6e77d3d2c264")
  c16 = ("http://tigre.cloudapi.junar.com/api/v2/stats/?auth_key=319bc3d44050c6bdd4c6cea78cafc3ff902aa5f4")
