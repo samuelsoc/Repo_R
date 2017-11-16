@@ -21,16 +21,16 @@ Stat_Total_Clientes.R
 
 # Argentina
   c8 = ("http://pilar.cloudapi.junar.com/api/v2/stats/?auth_key=ac0d7fc2804b535637ae44aa5f0bc57c674d3353")
-  c9 = ("http://api.datos.laplata.gov.ar/api/v2/stats/auth_key=8eede3b515c9dfd6495b1a80afc7127ddd9fa2bf")
-  c10 =("http://api.datosabiertos.enacom.gob.ar/api/v2/stats/auth_key=30f4ed1d4b1b27a62c056e8f7967cac885487c2b")
-  c11 =("http://lanacion.cloudapi.junar.com/api/v2/stats/auth_key=f1611e2c753ec10958cf0325301ecab24a4885e9")
+ # c9 = ("http://api.datos.laplata.gov.ar/api/v2/stats/auth_key=8eede3b515c9dfd6495b1a80afc7127ddd9fa2bf")
+  #c10 =("http://api.datosabiertos.enacom.gob.ar/api/v2/stats/auth_key=30f4ed1d4b1b27a62c056e8f7967cac885487c2b")
+ # c11 =("http://lanacion.cloudapi.junar.com/api/v2/stats/auth_key=f1611e2c753ec10958cf0325301ecab24a4885e9")
  c12 = ("http://api.datos.arsat.com.ar/api/v2/stats/?auth_key=f45c05b444d0d5d4c341195e79a47516038b6f08")
  c13 = ("http://api.datos.sanlorenzo.com.ar/api/v2/stats/auth_key=71963ef842204651a6132d8d8eee60f7acd097dc")
  c14 = ("http://vicentelopez.cloudapi.junar.com/api/v2/stats/?auth_key=bd8490be39079aad5e998e951caa13385d2ec052")
- c16 = ("http://api.datos.bahiablanca.gob.ar/api/v2/stats/?auth_key=df7e44427105659297fba23b177d6e77d3d2c264")
- c17 = ("http://tigre.cloudapi.junar.com/api/v2/stats/?auth_key=319bc3d44050c6bdd4c6cea78cafc3ff902aa5f4")
- c19 = ("http://api.datos.villamaria.gob.ar/api/v2/stats/?auth_key=8a9e51f5f02f4e305c46378856980134b20cc29d")
- c20 = ("http://api.datos.lujan.gov.ar/api/v2/stats/?auth_key=54500f1c13885266f228d603dae32e6ca1c95bb8")
+ c15 = ("http://api.datos.bahiablanca.gob.ar/api/v2/stats/?auth_key=df7e44427105659297fba23b177d6e77d3d2c264")
+ c16 = ("http://tigre.cloudapi.junar.com/api/v2/stats/?auth_key=319bc3d44050c6bdd4c6cea78cafc3ff902aa5f4")
+ c17 = ("http://api.datos.villamaria.gob.ar/api/v2/stats/?auth_key=8a9e51f5f02f4e305c46378856980134b20cc29d")
+ c18 = ("http://api.datos.lujan.gov.ar/api/v2/stats/?auth_key=54500f1c13885266f228d603dae32e6ca1c95bb8")
  
  #Peru
  c21 = ("http://oefa.cloudapi.junar.com/api/v2/stats/?auth_key=ffd5ad5c4b0675e12ccacb58d03fd4c13cf334a4")
@@ -67,7 +67,7 @@ Stat_Total_Clientes.R
 
 #####################################################################################################
 #####################################################################################################
-############GET QUERY POR TOTAL SEGUN CANAL###########################################################
+############  GET QUERY POR TOTAL SEGUN CANAL    #####################################################
 
  #Retorna los totales por canal, sin indentificar la cuenta
 
@@ -85,8 +85,6 @@ C5 <- C5$datastreams$stats$channels$channels
 ## Unir datos en una tabla
 TOTAL <- rbind (C1,C2,C3,C4,C5) # dataframe contiene lo recolectado desde channels
 
-
-
 ##Suma totales
 TotalHits = colSums (TOTAL [, 1, drop=FALSE]) #suma todo
 
@@ -101,10 +99,10 @@ TotalWEB = filter(TOTAL, channel=="CHANNEL_TYPE_WEB") %>% #suma por total canal 
 write.csv(TOTAL, "~/TotalHitsClientes.csv", row.names = FALSE)
 
 #############################################################################################
-########################QUERY POR CUENTA#################### 
+########################  QUERY POR CUENTA  #################### 
 
 #Retorna los totales por cuenta
-
+#Chile
 A1 <- fromJSON(c1, flatten = TRUE)
 A1 <- A1$datastreams$stats$accounts$accounts
 A2 <- fromJSON(c2, flatten = TRUE)
@@ -115,6 +113,40 @@ A4 <- fromJSON(c4, flatten = TRUE)
 A4 <- A4$datastreams$stats$accounts$accounts
 A5 <- fromJSON(c5, flatten = TRUE)
 A5 <- A5$datastreams$stats$accounts$accounts
+A6 <- fromJSON(c6, flatten = TRUE)
+A6 <- A6$datastreams$stats$accounts$accounts
+A7 <- fromJSON(c7, flatten = TRUE)
+A7 <- A7$datastreams$stats$accounts$accounts
+
+#Argentina
+A8 <- fromJSON(c8, flatten = TRUE)
+A8 <- A8$datastreams$stats$accounts$accounts
+#A9 <- fromJSON(c9, flatten = TRUE)
+#A9 <- A9$datastreams$stats$accounts$accounts
+#A10 <- fromJSON(c10, flatten = TRUE)
+#A10 <- A10$datastreams$stats$accounts$accounts
+#A11 <- fromJSON(c11, flatten = TRUE)
+#A11 <- A11$datastreams$stats$accounts$accounts
+A12 <- fromJSON(c12, flatten = TRUE)
+A12 <- A12$datastreams$stats$accounts$accounts
+#A13 <- fromJSON(c13, flatten = TRUE)
+#A13 <- A13$datastreams$stats$accounts$accounts
+A14 <- fromJSON(c14, flatten = TRUE)
+A14 <- A14$datastreams$stats$accounts$accounts
+A15 <- fromJSON(c15, flatten = TRUE)
+A15 <- A15$datastreams$stats$accounts$accounts
+A16 <- fromJSON(c16, flatten = TRUE)
+A16 <- A16$datastreams$stats$accounts$accounts
+A17 <- fromJSON(c17, flatten = TRUE)
+A17 <- A17$datastreams$stats$accounts$accounts
+A18 <- fromJSON(c18, flatten = TRUE)
+A18 <- A18$datastreams$stats$accounts$accounts
+
+#Peru
+A19 <- fromJSON(c19, flatten = TRUE)
+A19 <- A19$datastreams$stats$accounts$accounts
+A20 <- fromJSON(c20, flatten = TRUE)
+A20 <- A20$datastreams$stats$accounts$accounts
 
 
 #### Unir datos en una tabla
@@ -122,15 +154,29 @@ TOTAL_A <- rbind (A1,A2,A3,A4,A5) # dataframe contiene lo recolectado desde acco
 
 ##EXPORTAR DESC.
 
+TOTAL_A <- TOTAL_A %>% arrange(desc(total))
 
-#################################################################################################
-#########################POR PAIS#############################################
+write.csv(TOTAL_A, "~/TotalByAccounts.csv", row.names = FALSE)
+
+
+#############################################################################
+#################  POR PAIS     #############################################
 
 ##Querys por pais
 
 ## Chile
+TT_CL <- rbind(A1,A2,A3,A4,A5,A6,A7)
+
+TT_CL <-TT_CL %>% arrange(desc(total))
+
+write.csv(TT_CL,"~/RankingHitsChile.csv", row.names = TRUE)
+
 
 ## Argentina
+
+TT_ARG <- rbind(A8,A12,A14,A15,A16,A17,A18,A19,A20)
+
+TT_ARG <- TT_ARG %>% arrange(desc(total))
 
 ## Peru
 
